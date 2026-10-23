@@ -38,7 +38,7 @@ function Hero() {
   return (
     <section id="top" className="relative flex min-h-svh flex-col justify-end overflow-hidden bg-black">
       <div className="pointer-events-none absolute inset-0 z-0 mx-auto grid max-w-6xl grid-cols-4 px-6 md:grid-cols-6" aria-hidden="true">
-        {[...Array(6)].map((_, i) => <div key={i} className={`border-l border-white/[0.06] ${i > 3 ? 'hidden md:block' : ''} ${i === 5 ? 'border-r' : ''}`} />)}
+        {[...Array(6)].map((_, i) => <div key={i} className={`border-l border-white/6 ${i > 3 ? 'hidden md:block' : ''} ${i === 5 ? 'border-r' : ''}`} />)}
       </div>
       <div className="absolute inset-x-0 top-0 h-[78svh] md:inset-y-0 md:left-auto md:right-0 md:h-auto md:w-[55%]">
         {!missing ? (
@@ -47,8 +47,8 @@ function Hero() {
           <div className="h-full w-full bg-[radial-gradient(ellipse_at_50%_35%,#2a1d0e_0%,#000_65%)]" />
         )}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_85%_30%,rgba(224,160,80,0.22),transparent_55%)] mix-blend-screen" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-transparent md:bg-gradient-to-r md:from-black md:via-black/30 md:to-transparent" />
-        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent md:hidden" />
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/55 to-transparent md:bg-linear-to-r md:from-black md:via-black/30 md:to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-black to-transparent md:hidden" />
       </div>
 
       <div className={`${wrap} relative z-10 pb-24 pt-32`}>
@@ -115,7 +115,7 @@ function ProjectCard({ p }) {
   const [broken, setBroken] = useState(false)
   return (
     <article className="group flex flex-col border border-line bg-char/40 transition-colors hover:border-amber/60">
-      <div className="aspect-[16/10] overflow-hidden border-b border-line bg-char">
+      <div className="aspect-16/10 overflow-hidden border-b border-line bg-char">
         {!broken ? (
           <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" onError={() => setBroken(true)} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]" />
         ) : (
