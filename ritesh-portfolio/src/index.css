@@ -17,12 +17,19 @@ body { margin: 0; background: var(--color-ink); color: var(--color-paper); font-
 :focus-visible { outline: 2px solid var(--color-amber); outline-offset: 3px; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes zoom { from { transform: scale(1.12); } to { transform: scale(1); } }
+@keyframes lineup { from { transform: translateY(105%); } to { transform: none; } }
 @keyframes drip { 0%, 100% { transform: scaleY(.3); transform-origin: top; } 50% { transform: scaleY(1); transform-origin: top; } }
 .hero-in { animation: rise .9s ease-out both; }
+.hero-zoom { animation: zoom 2.6s ease-out both; }
+.line-up { animation: lineup 1s cubic-bezier(.2,.7,.2,1) both; }
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease-out, transform .8s ease-out, background-color .3s, border-color .3s; }
+.reveal.is-visible { opacity: 1; transform: none; }
 .scroll-line { animation: drip 2.2s ease-in-out infinite; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .hero-in, .scroll-line { animation: none; }
+  .hero-in, .scroll-line, .hero-zoom, .line-up { animation: none; }
+  .reveal { opacity: 1; transform: none; }
   * { transition-duration: .01ms !important; }
 }
